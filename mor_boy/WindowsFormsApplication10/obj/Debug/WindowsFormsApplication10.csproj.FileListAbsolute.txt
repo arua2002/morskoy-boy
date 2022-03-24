@@ -1,0 +1,31 @@
+c:\users\руслан\documents\visual studio 2012\Projects\WindowsFormsApplication10\WindowsFormsApplication10\bin\Debug\WindowsFormsApplication10.exe.config
+c:\users\руслан\documents\visual studio 2012\Projects\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.csprojResolveAssemblyReference.cache
+c:\users\руслан\documents\visual studio 2012\Projects\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.Properties.Resources.resources
+c:\users\руслан\documents\visual studio 2012\Projects\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.csproj.GenerateResource.Cache
+c:\users\руслан\documents\visual studio 2012\Projects\WindowsFormsApplication10\WindowsFormsApplication10\bin\Debug\WindowsFormsApplication10.exe
+c:\users\руслан\documents\visual studio 2012\Projects\WindowsFormsApplication10\WindowsFormsApplication10\bin\Debug\WindowsFormsApplication10.pdb
+c:\users\руслан\documents\visual studio 2012\Projects\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.Form1.resources
+c:\users\руслан\documents\visual studio 2012\Projects\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.exe
+c:\users\руслан\documents\visual studio 2012\Projects\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.pdb
+C:\Users\admin\Desktop\по-19\WindowsFormsApplication10\WindowsFormsApplication10\bin\Debug\WindowsFormsApplication10.exe.config
+C:\Users\admin\Desktop\по-19\WindowsFormsApplication10\WindowsFormsApplication10\bin\Debug\WindowsFormsApplication10.exe
+C:\Users\admin\Desktop\по-19\WindowsFormsApplication10\WindowsFormsApplication10\bin\Debug\WindowsFormsApplication10.pdb
+C:\Users\admin\Desktop\по-19\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\по-19\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.Form1.resources
+C:\Users\admin\Desktop\по-19\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.Properties.Resources.resources
+C:\Users\admin\Desktop\по-19\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\по-19\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\по-19\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.exe
+C:\Users\admin\Desktop\по-19\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.pdb
+C:\Users\Руслан\Desktop\WindowsFormsApplication10\WindowsFormsApplication10\bin\Debug\WindowsFormsApplication10.exe.config
+C:\Users\Руслан\Desktop\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.exe
+C:\Users\Руслан\Desktop\WindowsFormsApplication10\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.pdb
+C:\gir\new_rep\mor_boy\WindowsFormsApplication10\bin\Debug\WindowsFormsApplication10.exe.config
+C:\gir\new_rep\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.exe
+C:\gir\new_rep\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.pdb
+C:\gir\new_rep\mor_boy\WindowsFormsApplication10\bin\Debug\WindowsFormsApplication10.exe
+C:\gir\new_rep\mor_boy\WindowsFormsApplication10\bin\Debug\WindowsFormsApplication10.pdb
+C:\gir\new_rep\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.csprojResolveAssemblyReference.cache
+C:\gir\new_rep\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.Form1.resources
+C:\gir\new_rep\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.Properties.Resources.resources
+C:\gir\new_rep\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.csproj.GenerateResource.Cache
