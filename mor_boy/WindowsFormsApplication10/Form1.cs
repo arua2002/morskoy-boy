@@ -21,15 +21,16 @@ namespace WindowsFormsApplication10
         string[] sd = new string[10];//координаты кораблей 
         int[] sd2 = new int[10];//направление кораблей
         int[] num2 = new int[100];//записаны все координаты
-        string[] asd = new string[10];
-        int[] asd2 = new int[10];
+        int[] asd = new int[10];
+        string[] asd2 = new string[10];
         bool[] fr = new bool[10];
         bool a = true,hod= true;
-        int game = 0;
-        int lose = 0;
+        int game = 0;//наш счёт
+        int lose = 0;//противника
         int a1 = 0;
         int b1 = 0;
-        int r = 4, r1 = 3, r2 = 2, r3 = 1;
+        int r = 4, r1 = 3, r2 = 2, r3 = 1,bt = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -81,7 +82,6 @@ namespace WindowsFormsApplication10
                     chec_num(num[i]);
                     a = false;
                     if (a1 > 6) a = true;
-
                 }
                 for (int i1 = 0; i1 < r; i1++) loc[a1 + i1, b1] = 1;  
                // checker(a1,b1,0,r);//
@@ -231,7 +231,6 @@ namespace WindowsFormsApplication10
             
             sd[i] = a1.ToString() + b1.ToString();
         }
-
         bool korabli_3math(int x, int y, int r, int ran)
         {
             bool a = false;
@@ -269,7 +268,6 @@ namespace WindowsFormsApplication10
             else a = true;
             return a;
         }
-
         bool korabli_2math(int x, int y, int r, int ran)
         {
             bool a = false;
@@ -308,7 +306,6 @@ namespace WindowsFormsApplication10
             else a = true;
             return a;
         }
-
         bool korabli_1math(int x, int y, int r)
         {
             bool a = false;
@@ -323,7 +320,6 @@ namespace WindowsFormsApplication10
             if (x > 0 && y < 9 && loc[x - i, y + i] == 1) a = true;
             return a;
         }
-
         void randomer(int i)//приоритет тоже не трогать
         {
             if (i < 1) korabl1(i);
@@ -331,27 +327,26 @@ namespace WindowsFormsApplication10
             if (i > 2 && i < 6) korabl3(i);
             if (i > 5 && i < 10) korabl4(i);
         }
-
         void clear()// уже  используется не трогать
         {
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    but[i, j].BackColor = Color.AntiqueWhite;
+                    but[i, j].BackColor = Color.White;
                     but[i, j].ForeColor = Color.Black;
                     but2[i, j].Tag = 0;
                     but2[i, j].BackColor = Color.White;
                     loc[i, j] = 0;
                     check[i, j] = 0;
                     label4.Visible = false;
+                    bt = 0;
                 }
             }
             listBox1.Items.Clear();
             listBox2.Items.Clear();
-        }
-
-      
+            listBox3.Items.Clear();
+        }     
         void create_game_pole()//создание поля не трогать
         {
             for (int i = 0; i < 10; i++)
@@ -362,6 +357,7 @@ namespace WindowsFormsApplication10
                     but[i, j].Size = new Size(40, 40);
                     but[i, j].Text = i.ToString() + j.ToString();
                     but[i, j].Tag = 0;
+                    but[i, j].Click += new EventHandler(cleeck_1);
                     but[i, j].Location = new Point(10 + (i * 37), 12 + (j * 37));
                     groupBox1.Controls.Add(but[i, j]);
                 }
@@ -379,61 +375,91 @@ namespace WindowsFormsApplication10
                 }
             }
         }
+        void cleeck_1(object sender, EventArgs e)
+        {
+            listBox3.Items.Clear();
+            if (bt < 16 && checkBox1.Checked != true)
+            {
+                int x, y;
+                var clk = (Button)sender;
+                if (clk.BackColor == Color.White && bt < 20)//потом добавить проверку по кругу
+                {
+                    clk.BackColor = Color.Black;
+                    bt++;
+                }
+                if (bt < 3) crash(clk.Text);
+                if (bt == 2) label3.Text = "поставьте две  3-х палубных корабя";
+                if (bt > 2 && bt < 5) crash1(clk.Text, 1, 3, 4);
+                if (bt > 4 && bt < 7) crash1(clk.Text, 2, 5, 6);
+
+                if (bt == 6) label3.Text = "поставьте три  2-х палубных корабя";
+                if (bt == 12) label3.Text = "поставьте четыре  1-х палубных корабей";
+                if (bt == 16) label3.Text = "подготовка завершена начните отаку";
+            }
+            else
+            {
+                for (int i = 0; i < 10; i++) listBox3.Items.Add(asd[i]+" : " + asd2[i]);
+             
+                label3.Text = "подготовка завершена начните отаку";
+            }
+            label1.Text = bt.ToString();
+            
+        }
         void cleeck_2(object sender, EventArgs e)
         {
             listBox3.Items.Clear();
             var clk = (Button)sender;
-            if (hod && clk.BackColor != Color.Gray )
+            if (bt > 15 || checkBox1.Checked)
             {
-                
-                if (clk.Tag.ToString() == "1")
+                if (hod && clk.BackColor != Color.Gray)
                 {
-                    clk.BackColor = Color.Red;
-                    if (fr[0]) it(0, sd[0], sd2[0]);//4 палубы
-                    for (int i = 1; i < 3; i++) if (fr[i]) it1(i, sd[i], sd2[i]);//3 палубы
-                    for (int i = 3; i < 6; i++) if (fr[i]) it3(i, sd[i], sd2[i]);// 2 палубы    
-                    for (int i = 6; i < 10; i++) if (fr[i]) it6(i, sd[i], sd2[i]);//1 палуба          
-                    for (int i = 0; i < 10; i++) for (int j = 0; j < 10; j++) if (check[i, j] == 1) but2[i, j].BackColor = Color.Green;
-                    if (game == 10) label4.Visible = true;
-                    hod = true;
+                    if (clk.Tag.ToString() == "1")
+                    {
+                        clk.BackColor = Color.Red;
+                        if (fr[0]) it(0, sd[0], sd2[0]);//4 палубы
+                        for (int i = 1; i < 3; i++) if (fr[i]) it1(i, sd[i], sd2[i]);//3 палубы
+                        for (int i = 3; i < 6; i++) if (fr[i]) it3(i, sd[i], sd2[i]);// 2 палубы    
+                        for (int i = 6; i < 10; i++) if (fr[i]) it6(i, sd[i], sd2[i]);//1 палуба          
+                        for (int i = 0; i < 10; i++) for (int j = 0; j < 10; j++) if (check[i, j] == 1) but2[i, j].BackColor = Color.Gray;
+                        if (game == 10) label4.Visible = true;
+                        hod = true;
+                    }
+                    else
+                    {
+                        clk.BackColor = Color.Gray;
+                        hod = false;
+                    }
                 }
-                else
+                while (hod == false)//отака противника
                 {
-                    clk.BackColor = Color.Gray;
-                    hod = false;
+                    bool w = true;
+                    while (w)
+                    {
+                        w = false;
+                        int rn = rnd.Next(0, 100);
+                        chec_num(rn.ToString());
+                        if (but[a1, b1].Tag.ToString() == "1") w = true;
+                    }
+                    but[a1, b1].Tag = 1;
+                    if (but[a1, b1].BackColor == Color.Black)
+                    {
+                        but[a1, b1].BackColor = Color.Red;
+                        lose++;
+                        hod = false;
+                    }
+                    else
+                    {
+                        but[a1, b1].BackColor = Color.Gray;
+                        hod = true;
+                    }
+                    if (lose == 20)
+                    {
+                        label4.Text = "you lose";
+                        label4.Visible = true;
+                    }
+                    label5.Text = game.ToString();
                 }
             }
-            if (hod == false)
-            {
-               
-                bool w = true;
-                while(w)
-                {
-                    w=false;
-                    int rn = rnd.Next(0, 100);
-                    chec_num(rn.ToString());
-                    if (but[a1, b1].Tag.ToString() == "1") w = true;
-                }
-                but[a1, b1].Tag=1;
-                if (but[a1, b1].BackColor == Color.Black)
-                {
-                    but[a1, b1].BackColor = Color.Red;
-                    lose++;
-                    hod = false;
-
-                }
-                else
-                {
-                    but[a1, b1].BackColor = Color.Gray;
-                    hod = true;
-                }
-            }
-            if (lose == 20)
-            {
-                label4.Text = "you lose";
-                label4.Visible = true;
-            }
-            label5.Text = game.ToString();
         }
         void it(int n , string kor , int nap)
         {
@@ -515,6 +541,90 @@ namespace WindowsFormsApplication10
             }
             listBox3.Items.Add(fr[n] + " " + a1 + "" + b1 + "  " +kor + "  " + nap);
         }
+        void crash(string st)
+        {
+            int st1 = Convert.ToInt32(st);
+            string str = st1.ToString();
+            int x, y;
+            if (bt == 1)
+            {
+                chec_num(str);
+                asd2[0] = str;
+            }
+            if (bt == 2)
+            {
+                chec_num(str);
+                x = a1;
+                y = b1;
+                chec_num(asd2[0]);
+                if (a1 < x && a1<7) for (int i = 0; i < 4; i++)
+                    {
+                        but[a1 + i, b1].BackColor = Color.Black;
+                        asd[0] = 0;
+                    }
+                else if (a1 < x && a1 >= 7) for (int i = 0; i < 4; i++)
+                    {
+                        but[x - i, b1].BackColor = Color.Black;
+                        asd[0] = 2;
+                        asd2[0] = str;
+                    }
+                if (b1 < y) for (int i = 0; i < 4; i++)
+                    {
+                        but[a1, b1 + i].BackColor = Color.Black;
+                        asd[0] = 1;
+                    }
+                if (a1 > x) for (int i = 0; i < 4; i++)
+                    {
+                        but[a1 - i, b1].BackColor = Color.Black;
+                        asd[0] = 2;
+                    }
+                if (b1 > y) for (int i = 0; i < 4; i++)
+                    {
+                        but[a1, b1 - i].BackColor = Color.Black;
+                        asd[0] = 3;
+                    }
+                label5.Text = x.ToString() + "" + y.ToString() + " : " + a1.ToString() + "" + b1.ToString();
+            }
+        }
+        void crash1(string st , int n,int a,int b)
+        {
+            int x, y;
+            int st1 = Convert.ToInt32(st);
+            string str = st1.ToString();
+            if (bt == a)
+            {
+                chec_num(str);
+                asd2[n] = str;
+            }
+            if (bt == b)
+            {
+                chec_num(str);
+                x = a1;
+                y = b1;
+                chec_num(asd2[n]);
+                if (a1 < x) for (int i = 0; i < 3; i++)
+                    {
+                        but[a1 + i, b1].BackColor = Color.Black;
+                        asd[n] = 0;
+                    }
+                if (b1 < y) for (int i = 0; i < 3; i++)
+                    {
+                        but[a1, b1 + i].BackColor = Color.Black;
+                        asd[n] = 1;
+                    }
+                if (a1 > x) for (int i = 0; i < 3; i++)
+                    {
+                        but[a1 - i, b1].BackColor = Color.Black;
+                        asd[n] = 2;
+                    }
+                if (b1 > y) for (int i = 0; i < 3; i++)
+                    {
+                        but[a1, b1 - i].BackColor = Color.Black;
+                        asd[n] = 3;
+                    }
+
+            }
+        }
         void gamer1()
         {
             int t = 1;            
@@ -523,10 +633,15 @@ namespace WindowsFormsApplication10
             for (int i = 0; i < 10; i++) for (int j = 0; j < 10; j++) if (loc[i, j] == 1)
                     {
                         label1.Text = t++.ToString();
+                        
                         but[i, j].BackColor = Color.Black;
                     }
-           
-           
+            for (int i = 0; i < 10; i++)
+            {
+                asd[i] = sd2[i];
+                asd2[i] = sd[i];
+                listBox3.Items.Add(asd[i] + " : " + asd2[i]);
+            }
         }
         void gamer2()
         {
@@ -547,17 +662,13 @@ namespace WindowsFormsApplication10
         }
         private void button1_Click(object sender, EventArgs e)//начало всего дерьма что происходит на поле
         {
-            for (int i = 0; i < fr.Length; i++)fr[i] = true;
-            if(a) create_game_pole();
+            if (a) create_game_pole();
             clear();
-              gamer1();
-              for (int i = 0; i < 10; i++)
-              {
-                  asd[i] = sd[i];
-                  asd2[i] = sd2[i];
-              }
-              gamer2();
-            a = false;      
+            for (int i = 0; i < fr.Length; i++)fr[i] = true;                 
+           if(checkBox1.Checked == true) gamer1();          
+            gamer2();
+            a = false;
+            label3.Text = "поставьте первый 4 палубный корабль";
         }
 
         private void timer1_Tick(object sender, EventArgs e)
