@@ -26,7 +26,7 @@ namespace WindowsFormsApplication10
         string[] asd2 = new string[10];
         bool[] fr = new bool[10];
         bool[] fr2 = new bool[10];
-        bool a = true,hod= true;
+        bool a = true,hod= true,bot =true;
         int game = 0;//наш счёт      
         int lose = 0;//противника
         int a1 = 0;
@@ -496,19 +496,24 @@ namespace WindowsFormsApplication10
                     while (hod == false)//отака противника
                     {
                         bool w = true;
-                        while (w)//если мы попали то ходим до тех пор пока не промажем
+                        if (bot == true)
                         {
-                            w = false;
-                            int rn = rnd.Next(0, 100);
-                            chec_num(rn.ToString());
-                            if (but[a1, b1].BackColor == Color.Gray || but[a1, b1].BackColor == Color.Red) w = true;
-                            if (lose == 10) w = false;
-                            label1.Text = rn.ToString();
+                            while (w)//если мы попали то ходим до тех пор пока не промажем
+                            {
+                                w = false;
+                                int rn = rnd.Next(0, 100);
+                                chec_num(rn.ToString());
+                                if (but[a1, b1].BackColor == Color.Gray || but[a1, b1].BackColor == Color.Red) w = true;
+                                if (lose == 10) w = false;
+                                label1.Text = rn.ToString();
+                            }
                         }
+                        else nado();
                         // but[a1, b1].BackColor = Color.Gray;
                         if (but[a1, b1].BackColor == Color.Black)
                         {
                             but[a1, b1].BackColor = Color.Red;
+                            bot = false;
                             //тута надобно вставить проверку
 
                             if (fr2[0]) it_2(0, asd2[0], asd[0]);//4 палубы
@@ -622,15 +627,19 @@ namespace WindowsFormsApplication10
                 checker2(a1, b1, 0, 4);//4 палубы по горизонтали
                 label3.Text = "наш 4 палубный корабль уничтожен";
                 fr2[n] = false;
+
                 lose++;
             }
+
             if (nap == 1 && but[a1, b1].BackColor == Color.Red && but[a1, b1 + 1].BackColor == Color.Red && but[a1, b1 + 2].BackColor == Color.Red && but[a1, b1 + 3].BackColor == Color.Red)
             {
                 checker2(a1, b1, 1, 4);//4 палубы по горизонтали
                 label3.Text = "наш 4 палубный корабль уничтожен";
                 fr2[n] = false;
                 lose++;
+
             }
+
             for (int i = 0; i < 10; i++) for (int j = 0; j < 10; j++) if (check2[i, j] == 1) but[i, j].BackColor = Color.Gray;   
         }
         void it1_2(int n, string kor, int nap)//1-3
@@ -643,6 +652,7 @@ namespace WindowsFormsApplication10
                 label3.Text = "наш 3 палубный корабль уничтожен";
                 fr2[n] = false;
                 lose++;
+
             }
 
             if (nap == 1 && but[a1, b1].BackColor == Color.Red && but[a1, b1 + 1].BackColor == Color.Red && but[a1, b1 + 2].BackColor == Color.Red)
@@ -651,7 +661,9 @@ namespace WindowsFormsApplication10
                 label3.Text = "наш 3 палубный корабль уничтожен";
                 fr2[n] = false;
                 lose++;
+
             }
+
             for (int i = 0; i < 10; i++) for (int j = 0; j < 10; j++) if (check2[i, j] == 1) but[i, j].BackColor = Color.Gray;   
         }
         void it3_2(int n, string kor, int nap)//3 - 6
@@ -664,6 +676,7 @@ namespace WindowsFormsApplication10
                 label3.Text = "наш 2 палубный корабль уничтожен";
                 fr2[n] = false;
                 lose++;
+
             }
 
             if (nap == 1 && but[a1, b1].BackColor == Color.Red && but[a1, b1 + 1].BackColor == Color.Red)
@@ -672,7 +685,9 @@ namespace WindowsFormsApplication10
                 label3.Text = "наш 2 палубный корабль уничтожен";
                 fr2[n] = false;
                 lose++;
+
             }
+
             for (int i = 0; i < 10; i++) for (int j = 0; j < 10; j++) if (check2[i, j] == 1) but[i, j].BackColor = Color.Gray;   
         }
         void it6_2(int n, string kor, int nap)//от 6 до 10
@@ -685,7 +700,9 @@ namespace WindowsFormsApplication10
                 label3.Text = "наш 1 палубный корабль уничтожен";
                 fr2[n] = false;
                 lose++;
+
             }
+
             for (int i = 0; i < 10; i++) for (int j = 0; j < 10; j++) if (check2[i, j] == 1) but[i, j].BackColor = Color.Gray;   
         }
         void crash(string st)//проверка для 4 палубного
@@ -1007,10 +1024,10 @@ namespace WindowsFormsApplication10
             label7.Text = i.ToString() + " : " + ch.ToString();
             return ch;
         }
-        void nado(string kor)
+        void nado()
         {
-            int cor = Convert.ToInt32(kor);
-            chec_num(cor.ToString());
+            //int cor = Convert.ToInt32(kor);
+            //chec_num(cor.ToString());
             int i = rnd.Next(0,4);
             if (i == 0)
             {

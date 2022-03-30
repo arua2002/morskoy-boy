@@ -29,3 +29,6 @@ C:\gir\new_rep\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplicati
 C:\gir\new_rep\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.Form1.resources
 C:\gir\new_rep\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.Properties.Resources.resources
 C:\gir\new_rep\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.csproj.GenerateResource.Cache
+C:\gir\new_test\mor_boy\WindowsFormsApplication10\bin\Debug\WindowsFormsApplication10.exe.config
+C:\gir\new_test\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.exe
+C:\gir\new_test\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.pdb
