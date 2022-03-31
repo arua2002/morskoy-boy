@@ -625,7 +625,7 @@ namespace WindowsFormsApplication10
                 checker2(a1, b1, 0, 4);//4 палубы по горизонтали
                 label3.Text = "наш 4 палубный корабль уничтожен";
                 fr2[n] = false;
-
+                bot = true;
                 lose++;
             }
 
@@ -635,7 +635,7 @@ namespace WindowsFormsApplication10
                 label3.Text = "наш 4 палубный корабль уничтожен";
                 fr2[n] = false;
                 lose++;
-
+                bot = true;
             }
 
             for (int i = 0; i < 10; i++) for (int j = 0; j < 10; j++) if (check2[i, j] == 1) but[i, j].BackColor = Color.Gray;   
@@ -650,7 +650,7 @@ namespace WindowsFormsApplication10
                 label3.Text = "наш 3 палубный корабль уничтожен";
                 fr2[n] = false;
                 lose++;
-
+                bot = true;
             }
 
             if (nap == 1 && but[a1, b1].BackColor == Color.Red && but[a1, b1 + 1].BackColor == Color.Red && but[a1, b1 + 2].BackColor == Color.Red)
@@ -659,7 +659,7 @@ namespace WindowsFormsApplication10
                 label3.Text = "наш 3 палубный корабль уничтожен";
                 fr2[n] = false;
                 lose++;
-
+                bot = true;
             }
 
             for (int i = 0; i < 10; i++) for (int j = 0; j < 10; j++) if (check2[i, j] == 1) but[i, j].BackColor = Color.Gray;   
@@ -674,7 +674,7 @@ namespace WindowsFormsApplication10
                 label3.Text = "наш 2 палубный корабль уничтожен";
                 fr2[n] = false;
                 lose++;
-
+                bot = true;
             }
 
             if (nap == 1 && but[a1, b1].BackColor == Color.Red && but[a1, b1 + 1].BackColor == Color.Red)
@@ -683,7 +683,7 @@ namespace WindowsFormsApplication10
                 label3.Text = "наш 2 палубный корабль уничтожен";
                 fr2[n] = false;
                 lose++;
-
+                bot = true;
             }
 
             for (int i = 0; i < 10; i++) for (int j = 0; j < 10; j++) if (check2[i, j] == 1) but[i, j].BackColor = Color.Gray;   
@@ -698,7 +698,7 @@ namespace WindowsFormsApplication10
                 label3.Text = "наш 1 палубный корабль уничтожен";
                 fr2[n] = false;
                 lose++;
-
+                bot = true;
             }
 
             for (int i = 0; i < 10; i++) for (int j = 0; j < 10; j++) if (check2[i, j] == 1) but[i, j].BackColor = Color.Gray;   
