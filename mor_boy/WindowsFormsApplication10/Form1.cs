@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication10
+namespace WindowsFormsApplication10 
 {
     public partial class Form1 : Form
     {
@@ -32,7 +32,7 @@ namespace WindowsFormsApplication10
         int a1 = 0;
         int b1 = 0;
         int[] br = new int[100];
-        int r = 4, r1 = 3, r2 = 2, r3 = 1,bt = 0;
+        int r = 4, r1 = 3, r2 = 2, r3 = 1,bt = 0,n,n1;
         public Form1()
         {
             InitializeComponent();
@@ -1026,6 +1026,8 @@ namespace WindowsFormsApplication10
         {
             //int cor = Convert.ToInt32(kor);
             //chec_num(cor.ToString());
+            n = a1;
+            n1 = b1;
             int i = rnd.Next(0,4);
             //if (i == 0)
             //{
