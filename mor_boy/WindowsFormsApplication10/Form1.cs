@@ -520,8 +520,6 @@ namespace WindowsFormsApplication10
                             for (int i = 1; i < 3; i++) if (fr2[i]) it1_2(i, asd2[i], asd[i]);//3 палубы
                             for (int i = 3; i < 6; i++) if (fr2[i]) it3_2(i, asd2[i], asd[i]);//2 палубы  
                             for (int i = 6; i < 10; i++) if (fr2[i]) it6_2(i, asd2[i], asd[i]);//1 палуба  
-                           
-                           
                             hod = false;//нужна корректировка
                         }
                         else
@@ -1029,55 +1027,29 @@ namespace WindowsFormsApplication10
             //int cor = Convert.ToInt32(kor);
             //chec_num(cor.ToString());
             int i = rnd.Next(0,4);
-            if (i == 0)
-            {
-                if (a1 > 1 && but[a1 - 1, b1].BackColor != Color.Gray)
-                {
-                    if (but[a1 - 1, b1].BackColor == Color.Black)
-                    {
-                        but[a1 - 1, b1].BackColor = Color.Red;
-                        hod = false;
-                    }
-                    else hod = true;
-                }
+            //if (i == 0)
+            //{
+            //    if (a1 > 1 && but[a1 - 1, b1].BackColor != Color.Gray)
+            //    {
+            //        if (but[a1 - 1, b1].BackColor == Color.Black)
+            //        {
+            //            but[a1 - 1, b1].BackColor = Color.Red;
+            //            hod = false;
+            //        }
+            //        else hod = true;
+            //    }
+            //}
+            if (a1 > 1 && but[a1 - 1, b1].BackColor != Color.Gray)
+            { 
+                 if (but[a1 - 1, b1].BackColor == Color.Black)
+                 {
+                     but[a1 - 1, b1].BackColor = Color.Red;
+                     hod = false;
+                     bot = false;
+                 }
             }
 
-            if (i == 1)
-            {
-                if (a1 < 9 && but[a1 + 1, b1].BackColor != Color.Gray)
-                {
-                    if (but[a1 + 1, b1].BackColor == Color.Black)
-                    {
-                        but[a1 + 1, b1].BackColor = Color.Red;
-                        hod = false;
-                    }
-                    else hod = true;
-                }
-            }
-            if (i == 2)
-            {
-                if (b1 > 1 && but[a1 , b1 - 1].BackColor != Color.Gray)
-                {
-                    if (but[a1, b1 - 1].BackColor == Color.Black)
-                    {
-                        but[a1, b1 - 1].BackColor = Color.Red;
-                        hod = false;
-                    }
-                    else hod = true;
-                }
-            }
-            if (i == 3)
-            {
-                if (b1 < 9 && but[a1, b1 + 1].BackColor != Color.Gray)
-                {
-                    if (but[a1, b1 + 1].BackColor == Color.Black)
-                    {
-                        but[a1, b1 + 1].BackColor = Color.Red;
-                        hod = false;
-                    }
-                    else hod = true;
-                }
-            }
+            
         }
         void gamer1()
         {
