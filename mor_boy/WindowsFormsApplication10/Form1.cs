@@ -1031,9 +1031,9 @@ namespace WindowsFormsApplication10
             //chec_num(cor.ToString());
             bool right = true, left = true, top = true, bottom =true;
             int i = rnd.Next(0,3);
-            if (n > 0  && but[n - 1, n1].BackColor == Color.Gray && but[n - 1, n1].BackColor == Color.Red) left = false;
-            if (n < 9  && but[n + 1, n1].BackColor == Color.Gray && but[n + 1, n1].BackColor == Color.Red) right = false;
-            if (n1 > 0 && but[n, n1 - 1].BackColor == Color.Gray && but[n, n1 - 1].BackColor == Color.Red) top = false;
+            if (n > 0  && but[n - 1, n1].BackColor == Color.Gray && but[n - 1, n1].BackColor == Color.Red) left   = false;
+            if (n < 9  && but[n + 1, n1].BackColor == Color.Gray && but[n + 1, n1].BackColor == Color.Red) right  = false;
+            if (n1 > 0 && but[n, n1 - 1].BackColor == Color.Gray && but[n, n1 - 1].BackColor == Color.Red) top    = false;
             if (n1 < 9 && but[n, n1 + 1].BackColor == Color.Gray && but[n, n1 + 1].BackColor == Color.Red) bottom = false;
 
 
