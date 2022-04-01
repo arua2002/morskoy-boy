@@ -483,6 +483,7 @@ namespace WindowsFormsApplication10
                             for (int i = 6; i < 10; i++) if (fr[i]) it6(i, sd[i], sd2[i]);//1 палуба          
                             for (int i = 0; i < 10; i++) for (int j = 0; j < 10; j++) if (check[i, j] == 1) but2[i, j].BackColor = Color.Gray;//закраска вокруг корабля
                             if (game == 10) label4.Visible = true;
+                            label4.Text = "you win!!!";
                             hod = true;
                         }
                         else
@@ -1026,7 +1027,7 @@ namespace WindowsFormsApplication10
             label7.Text = i.ToString() + " : " + ch.ToString();
             return ch;
         }
-        void nado()
+        void nado()//отвечает за точность бота
         {
             int n, n1;
             n = g;
@@ -1040,8 +1041,6 @@ namespace WindowsFormsApplication10
             if (n < 9 && but[n + 1, n1].BackColor != Color.Gray && but[n + 1, n1].BackColor != Color.Red) right = true;
             if (n1 > 0 && but[n, n1 - 1].BackColor != Color.Gray && but[n, n1 - 1].BackColor != Color.Red) top = true;
             if (n1 < 9 && but[n, n1 + 1].BackColor != Color.Gray && but[n, n1 + 1].BackColor != Color.Red) bottom = true;
-
-
             if (left)
             {
                 if (but[n - 1, n1].BackColor == Color.Black)
@@ -1056,7 +1055,6 @@ namespace WindowsFormsApplication10
                     bot = true;
                     left = false;
                 }
-
             }
             if (right)
             {
@@ -1072,7 +1070,6 @@ namespace WindowsFormsApplication10
                     bot = true;
                     right = false;
                 }
-
             }
             if (top)
             {
@@ -1091,7 +1088,6 @@ namespace WindowsFormsApplication10
             }
             if (bottom)
             {
-
                 if (but[n, n1 + 1].BackColor == Color.Black)
                 {
                     but[n, n1 + 1].BackColor = Color.Red;
