@@ -512,7 +512,7 @@ namespace WindowsFormsApplication10
                             but[a1, b1].BackColor = Color.Red;
                             bot = false;
                             //тута надобно вставить проверку
-                            if (bot == false)
+                            if (bot == false && hod == false)
                             {
                                 n = a1;
                                 n1 = b1;
@@ -546,7 +546,7 @@ namespace WindowsFormsApplication10
                 for (int i = 0; i < 10; i++) listBox3.Items.Add(asd[i] + " : " + asd2[i] + " :: " + fr[i]);
                 label5.Text = game.ToString();
                 label6.Text = lose.ToString();
-                label7.Text = bot.ToString();
+                label7.Text = bot.ToString() + n.ToString() + n1.ToString();
             }
         }
         void it(int n , string kor , int nap)
@@ -1029,29 +1029,76 @@ namespace WindowsFormsApplication10
         {
             //int cor = Convert.ToInt32(kor);
             //chec_num(cor.ToString());
-            bool right = true, left = true, top = true, bottom =true;
+            bool right = false, left = false, top = false, bottom = false;
             int i = rnd.Next(0,3);
-            if (n > 0  && but[n - 1, n1].BackColor == Color.Gray && but[n - 1, n1].BackColor == Color.Red) left   = false;
-            if (n < 9  && but[n + 1, n1].BackColor == Color.Gray && but[n + 1, n1].BackColor == Color.Red) right  = false;
-            if (n1 > 0 && but[n, n1 - 1].BackColor == Color.Gray && but[n, n1 - 1].BackColor == Color.Red) top    = false;
-            if (n1 < 9 && but[n, n1 + 1].BackColor == Color.Gray && but[n, n1 + 1].BackColor == Color.Red) bottom = false;
+            if (n > 0  && but[n - 1, n1].BackColor != Color.Gray && but[n - 1, n1].BackColor != Color.Red) left   = true;
+            if (n < 9  && but[n + 1, n1].BackColor != Color.Gray && but[n + 1, n1].BackColor != Color.Red) right  = true;
+            if (n1 > 0 && but[n, n1 - 1].BackColor != Color.Gray && but[n, n1 - 1].BackColor != Color.Red) top    = true;
+            if (n1 < 9 && but[n, n1 + 1].BackColor != Color.Gray && but[n, n1 + 1].BackColor != Color.Red) bottom = true;
 
 
             if (left)
-            { 
-                
+            {
+                if (but[n - 1, n1].BackColor == Color.Black)
+                {
+                    but[n - 1, n1].BackColor = Color.Red;
+                    hod = false;
+                    bot = false;
+                }
+                else
+                {
+                    hod = true;
+                    bot = true;
+                    left = false;
+                }
+
             }
-            else if (right)
-            { 
-            
+             if (right)
+            {
+                if (but[n + 1, n1].BackColor == Color.Black)
+                {         
+                    but[n + 1, n1].BackColor = Color.Red;
+                    hod = false;
+                    bot = false;
+                }
+                else
+                {
+                    hod = true;
+                    bot = true;
+                    right = false;
+                }
+
             }
-            else if (top)
-            { 
-            
+             if (top)
+            {
+                if (but[n , n1-1].BackColor == Color.Black)
+                {             
+                    but[n , n1-1].BackColor = Color.Red;
+                    hod = false;
+                    bot = false;
+                }
+                else
+                {
+                    hod = true;
+                    bot = true;
+                    top = false;
+                }
             }
-           else  if (bottom)
-            { 
-            
+             if (bottom)
+            {
+
+                if (but[n, n1 + 1].BackColor == Color.Black)
+                {             
+                    but[n, n1 + 1].BackColor = Color.Red;
+                    hod = false;
+                    bot = false;
+                }
+                else
+                {
+                    hod = true;
+                    bot = true;
+                    bottom = false;
+                }
             }
             //if (but[a1 - 1, b1].BackColor == Color.Black)
             //{
