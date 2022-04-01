@@ -422,9 +422,7 @@ namespace WindowsFormsApplication10
             var clk = (Button)sender;
             listBox3.Items.Clear();
             if (bt < 16 && checkBox1.Checked != true && prov(clk.Text))
-            {
-                int x, y;
-            
+            {          
                 if (clk.BackColor == Color.White && bt < 20)//потом добавить проверку по кругу
                 {
                     clk.BackColor = Color.Black;
@@ -496,8 +494,8 @@ namespace WindowsFormsApplication10
                     while (hod == false)//отака противника
                     {
                         bool w = true;
-                        if (bot == true)
-                        {
+                       if (bot == true)
+                       {
                             while (w)//если мы попали то ходим до тех пор пока не промажем
                             {
                                 w = false;
@@ -508,19 +506,23 @@ namespace WindowsFormsApplication10
                                 label1.Text = rn.ToString();
                             }
                         }
-                        else nado();
-                        // but[a1, b1].BackColor = Color.Gray;
+                        else nado();                    
                         if (but[a1, b1].BackColor == Color.Black)
                         {
                             but[a1, b1].BackColor = Color.Red;
                             bot = false;
                             //тута надобно вставить проверку
-
+                            if (bot == false)
+                            {
+                                n = a1;
+                                n1 = b1;
+                            }
                             if (fr2[0]) it_2(0, asd2[0], asd[0]);//4 палубы
                             for (int i = 1; i < 3; i++) if (fr2[i]) it1_2(i, asd2[i], asd[i]);//3 палубы
                             for (int i = 3; i < 6; i++) if (fr2[i]) it3_2(i, asd2[i], asd[i]);//2 палубы  
                             for (int i = 6; i < 10; i++) if (fr2[i]) it6_2(i, asd2[i], asd[i]);//1 палуба  
                             hod = false;//нужна корректировка
+                         
                         }
                         else
                         {
@@ -544,6 +546,7 @@ namespace WindowsFormsApplication10
                 for (int i = 0; i < 10; i++) listBox3.Items.Add(asd[i] + " : " + asd2[i] + " :: " + fr[i]);
                 label5.Text = game.ToString();
                 label6.Text = lose.ToString();
+                label7.Text = bot.ToString();
             }
         }
         void it(int n , string kor , int nap)
@@ -961,7 +964,7 @@ namespace WindowsFormsApplication10
         }
         void crash2(string st, int n,int a,int b)
         {
-            int e = 0, b2 = 0, m = 0;
+            int e = 0, m = 0;
             int x, y;
             int st1 = Convert.ToInt32(st);
             string str = st1.ToString();
@@ -1026,32 +1029,36 @@ namespace WindowsFormsApplication10
         {
             //int cor = Convert.ToInt32(kor);
             //chec_num(cor.ToString());
-            n = a1;
-            n1 = b1;
-            int i = rnd.Next(0,4);
-            //if (i == 0)
-            //{
-            //    if (a1 > 1 && but[a1 - 1, b1].BackColor != Color.Gray)
-            //    {
-            //        if (but[a1 - 1, b1].BackColor == Color.Black)
-            //        {
-            //            but[a1 - 1, b1].BackColor = Color.Red;
-            //            hod = false;
-            //        }
-            //        else hod = true;
-            //    }
-            //}
-            if (a1 > 1 && but[a1 - 1, b1].BackColor != Color.Gray)
-            { 
-                 if (but[a1 - 1, b1].BackColor == Color.Black)
-                 {
-                     but[a1 - 1, b1].BackColor = Color.Red;
-                     hod = false;
-                     bot = false;
-                 }
-            }
+            bool right = true, left = true, top = true, bottom =true;
+            int i = rnd.Next(0,3);
+            if (n > 0  && but[n - 1, n1].BackColor == Color.Gray && but[n - 1, n1].BackColor == Color.Red) left = false;
+            if (n < 9  && but[n + 1, n1].BackColor == Color.Gray && but[n + 1, n1].BackColor == Color.Red) right = false;
+            if (n1 > 0 && but[n, n1 - 1].BackColor == Color.Gray && but[n, n1 - 1].BackColor == Color.Red) top = false;
+            if (n1 < 9 && but[n, n1 + 1].BackColor == Color.Gray && but[n, n1 + 1].BackColor == Color.Red) bottom = false;
 
+
+            if (left)
+            { 
+                
+            }
+            else if (right)
+            { 
             
+            }
+            else if (top)
+            { 
+            
+            }
+           else  if (bottom)
+            { 
+            
+            }
+            //if (but[a1 - 1, b1].BackColor == Color.Black)
+            //{
+            //    but[a1 - 1, b1].BackColor = Color.Red;
+            //    hod = false;
+            //    bot = false;
+            //} 
         }
         void gamer1()
         {

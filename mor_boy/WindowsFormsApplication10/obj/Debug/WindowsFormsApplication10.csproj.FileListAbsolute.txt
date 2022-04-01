@@ -38,3 +38,13 @@ C:\gir\new_test\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplicat
 C:\gir\new_test\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.Form1.resources
 C:\gir\new_test\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.Properties.Resources.resources
 C:\gir\new_test\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.csproj.GenerateResource.Cache
+F:\github\new_test\mor_boy\WindowsFormsApplication10\bin\Debug\WindowsFormsApplication10.exe.config
+F:\github\new_test\mor_boy\WindowsFormsApplication10\bin\Debug\WindowsFormsApplication10.exe
+F:\github\new_test\mor_boy\WindowsFormsApplication10\bin\Debug\WindowsFormsApplication10.pdb
+F:\github\new_test\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.csproj.AssemblyReference.cache
+F:\github\new_test\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.Form1.resources
+F:\github\new_test\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.Properties.Resources.resources
+F:\github\new_test\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.csproj.GenerateResource.cache
+F:\github\new_test\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.csproj.CoreCompileInputs.cache
+F:\github\new_test\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.exe
+F:\github\new_test\mor_boy\WindowsFormsApplication10\obj\Debug\WindowsFormsApplication10.pdb
