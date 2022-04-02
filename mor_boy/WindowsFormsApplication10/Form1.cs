@@ -476,7 +476,7 @@ namespace WindowsFormsApplication10
                 if (bt > 15 || checkBox1.Checked)
                 { 
 
-                    if (hod==true/* && clk.BackColor != Color.Gray*/)
+                    if (hod==true&& clk.BackColor != Color.Gray)
                     {
                         if (clk.BackColor == Color.Black || clk.Tag.ToString() == "1")
                         {
@@ -487,7 +487,7 @@ namespace WindowsFormsApplication10
                             for (int i = 6; i < 10; i++) if (fr[i]) it6(i, sd[i], sd2[i]);//1 палуба          
                             for (int i = 0; i < 10; i++) for (int j = 0; j < 10; j++) if (check[i, j] == 1) but2[i, j].BackColor = Color.Gray;//закраска вокруг корабля
                             if (game == 10) label4.Visible = true;
-                            //label4.Text = "you win!!!";
+                            label4.Text = "you win!!!";
                             hod = true;
                         }
                         else
@@ -499,8 +499,7 @@ namespace WindowsFormsApplication10
                     while (hod == false)//отака противника
                     {
                         if (bot == true) panda(); //рандомный обстрел                  
-                        else             nado();//типо алгоритмический обстрел  
-                       
+                        else             nado();//типо алгоритмический обстрел                       
                         if (lose == 10)
                         {
                             label4.Text = "you lose";
@@ -1053,6 +1052,7 @@ namespace WindowsFormsApplication10
                     but[n - 1, n1].BackColor = Color.Red;
                     bot = false;                  
                     mega_prov();
+                   // if (bot == false) god(n,n1,0);
                 }
                 else
                 {
@@ -1106,9 +1106,9 @@ namespace WindowsFormsApplication10
            
 
         }
-        void god(int x,int y)
-        { 
-         
+        void god(int x,int y,int napr)
+        {
+          
         }
         void gamer1()
         {
